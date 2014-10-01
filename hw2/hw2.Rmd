@@ -1,0 +1,29 @@
+---
+title: "La Quinta and Dennys"
+date: "October 1, 2014"
+output: html_document
+---
+
+```{r, echo=FALSE}
+load(file="lq/lq_data.Rdata")
+load(file="dennys/dennys_data.Rdata")
+```
+
+## Write up
+
+Blah blah blah
+
+Use data, plot data, etc.
+
+
+### La Quinta Data
+
+```{r}
+lq
+```
+
+### Denny's Data
+
+```{r}
+dennys
+```
