@@ -13,3 +13,8 @@
 hw2/hw2.html
 hw2/lq/*
 hw2/dennys/*
+
+hw3/plot.pdf
+hw3/precinct.json
+
+*.DS_Store
