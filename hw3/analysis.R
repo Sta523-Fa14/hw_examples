@@ -8,11 +8,12 @@ p@data
 
 
 # Write to GeoJSON
-writeOGR(p, "./out", "", driver="GeoJSON") # Creates out file, current version of 
-                                           # GDAL does not allow . in file names 
-                                           # so we have to rename the file afterwards
-file.rename("./out", "./precinct.json")
+source("write_json.R")
+writeGeoJSON(p, "./precinct.json")
 
+
+
+# Read output
 p2 = readOGR("precinct.json","OGRGeoJSON") 
 
 p2@data
