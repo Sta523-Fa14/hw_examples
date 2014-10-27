@@ -1,0 +1,12 @@
+.DS_Store
+.Rhistory
+
+sim/*.png
+sim/*.Rdata
+
+tz/*.png
+
+world/
+tz_world_mp.zip
+
+*.html

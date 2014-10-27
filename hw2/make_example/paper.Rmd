@@ -1,0 +1,49 @@
+---
+title: "make Sample Document"
+author: "Colin Rundel"
+date: "September 17, 2014"
+output: html_document
+---
+
+## Timezones
+
+```{r, echo=FALSE}
+suppressMessages(library(rgdal))
+#tz = readOGR("world/","tz_world_mp",verbose=FALSE)
+nr = ogrInfo("world/",layer = "tz_world_mp")$nrows
+```
+
+Working with time zones can be incredibly difficult, there are currently something around `r nr` distinct timezones around the globe. A current database of the spatial extents of these regions is maintained at http://efele.net/maps/tz/world/. These data are available as a shapefile (more on these next week) which contains the polygons / multipolygons that make up these `r nr` regions.
+
+Due to the complexity of these polygons it takes an annoyingly long time to plot a world map everytime we need to knit this document, so instead we will write separate code to generate a separate plot which we will include as an image in this document.
+
+<br/>
+
+![World timezone map](tz/tz.png)
+
+<br/>
+
+## Simulations
+
+Another example of a time consuming process that we probably do not want to include directly in our document is a simulation. Here we will attempt to use monte carlo methods to estimate the value of $\pi$.
+
+We perform this simulation by sampling $x_i,y_i \sim Unif(0,1)$ repeatedly and calculating 
+
+$$d_i = \sqrt{x_i^2+y_i^2}$$
+
+the ratio of $d_i$s less than 1 should be equal to $\pi/4$, hence we can estimate $\pi$ as 4 times this ratio. The plot below shows the result of the first 100 draws, points within 1 of the origin are denoted in green.
+
+<div style="text-align:center">
+![Simulation results](sim/sim.png)
+</div>
+
+```{r, echo=FALSE}
+load(file="sim/sim_tab_results.Rdata")
+options(scipen=100, digits=10)
+```
+
+We can evaluate the convergence of our simulation by examining the performance at various points along the `r tab[nrow(tab),1]` steps of our simulation.
+
+```{r, echo=FALSE, results="asis"}
+knitr::kable(tab, align="c")
+```
