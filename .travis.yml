@@ -3,6 +3,7 @@
 language: c
 
 before_install:
+  - cd hw4
   - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
   - chmod 755 ./travis-tool.sh
   - ./travis-tool.sh bootstrap
@@ -11,8 +12,7 @@ install:
   - ./travis-tool.sh install_r testthat
 
 script: 
-  - cd hw4
-  - Rscript -e "library(testthat);source_dir('./');test_dir('tests')"
+  - Rscript -e "library(testthat);source_dir('./');z=test_dir('tests');stopifnot(sum(z$failed)==0)"
 
 on_failure:
   - ./travis-tool.sh dump_logs
