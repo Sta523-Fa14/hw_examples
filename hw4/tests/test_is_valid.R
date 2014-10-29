@@ -6,7 +6,7 @@ test_that("valid graphs", {
             list(edges   = c(1L, 2L),
                  weights = c(1, 1)))
 
-  g1 = list(A = list(edges   = c(1L, 2L),
+  g2 = list(A = list(edges   = c(1L, 2L),
                      weights = c(1, 1)),
             B = list(edges   = c(1L, 2L),
                      weights = c(1, 1)))
@@ -27,7 +27,6 @@ test_that("valid graphs", {
 
 
 test_that("Bad structure", {
-  # Structure
   bad_g1_1 = list(list())
   bad_g1_2 = list(list(edges = 1L))
   bad_g1_3 = list(list(weights = 1))
