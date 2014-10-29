@@ -12,12 +12,10 @@ install:
   - ./travis-tool.sh install_r testthat
 
 script: 
-  - Rscript -e "library(testthat);source_dir('./');z=test_dir('tests');stopifnot(sum(z$failed)==0)"
+  - Rscript -e "library(testthat);source_dir('./',pattern='[^_][^e][^x].[rR]$',env=globalenv());z=test_dir('tests');stopifnot(sum(z$failed)==0)"
 
-on_failure:
+after_failure:
   - ./travis-tool.sh dump_logs
 
 notifications:
-  email:
-    on_success: change
-    on_failure: change
+  email: false
