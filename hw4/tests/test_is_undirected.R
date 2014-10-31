@@ -54,7 +54,7 @@ test_that("Undirected",{
             list(edges   = c(1L),
                  weights = c(1)),
             list(edges   = c(4L),
-                 weights = c(1)))
+                 weights = c(1)),
             list(edges   = c(1L,3L),
                  weights = c(1,1)))
   
