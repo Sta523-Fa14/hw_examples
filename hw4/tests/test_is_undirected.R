@@ -91,7 +91,7 @@ test_that("Directed - Weights",{
   g2 = list(list(edges   = c(1L,2L),
                  weights = c(1,1)),
             list(edges   = c(1L,2L),
-                 weights = c(1,2)))
+                 weights = c(2,1)))
 
   expect_false(is_undirected(g1))
   expect_false(is_undirected(g2))   
