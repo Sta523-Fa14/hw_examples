@@ -2,6 +2,29 @@ source("predicates.R")
 
 has_loop = function(g)
 {
+    stopifnot(is_valid(g))
+
+    traverse = function(g, v, visited = integer())
+    {
+        visited = c(visited, v)
+
+        if (any(g[[v]]$edges %in% visited))
+            return(TRUE)
+
+        for(e in setdiff(g[[v]]$edges,visited))
+        {
+            if (traverse(g, e, visited))
+                return(TRUE)
+        }
+
+        return(FALSE)
+    }
+
+    for(i in 1:length(g))
+    {
+        if (traverse(g, i))
+            return(TRUE)
+    }
 
     return(FALSE)
 }
