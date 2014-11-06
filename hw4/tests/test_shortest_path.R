@@ -38,8 +38,8 @@ test_that("Unconnected graphs", {
   
   expect_identical(shortest_path(g3,1,1), c("A","A"))
   expect_identical(shortest_path(g3,2,1), c("B","A"))
-  expect_identical(shortest_path(g2,2,3), c("B","C"))
-  expect_identical(shortest_path(g2,3,3), c("C","C"))
+  expect_identical(shortest_path(g3,2,3), c("B","C"))
+  expect_identical(shortest_path(g3,3,3), c("C","C"))
 
   expect_true(is_empty_atomic(shortest_path(g1,1,1)))
 
@@ -48,7 +48,7 @@ test_that("Unconnected graphs", {
 
   expect_true(is_empty_atomic(shortest_path(g3,1,2)))
   expect_true(is_empty_atomic(shortest_path(g3,2,2)))
-  expect_true(is_empty_atomic(shortest_path(g2,3,2)))
+  expect_true(is_empty_atomic(shortest_path(g3,3,2)))
 })
 
 
@@ -178,8 +178,8 @@ test_that("Med valid graph", {
            F = list(edges   = c(3L,5L),
                     weights = c(5 ,7 )))
 
-  expect_identical(shortest_path(g1,"B","F"),  c("B","E","F"))
-  expect_identical(shortest_path(g1,"D","F"),  c("D","E","F"))
-  expect_identical(shortest_path(g1,"C","D"),  c("C","E","D"))
+  expect_identical(shortest_path(g,"B","F"),  c("B","E","F"))
+  expect_identical(shortest_path(g,"D","F"),  c("D","E","F"))
+  expect_identical(shortest_path(g,"C","D"),  c("C","E","D"))
 })
 
