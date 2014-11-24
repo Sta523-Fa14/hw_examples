@@ -4,7 +4,7 @@ input        = mcpi.R
 output       = mcpi_out_$(Process)
 log          = mcpi_log
 arguments    = --slave
-requirements = OpSys == "LINUX"
-rank         = Arch == "x86_64"
+requirements = OpSys == "LINUX" && Arch == "x86_64"
++Department  = StatSci
 
 queue 5
