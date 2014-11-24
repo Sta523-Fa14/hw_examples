@@ -1,6 +1,6 @@
 # Calculate pi by monte carlo sampling
 
-size = 1e8
+size = 1e9
 
 options(digits=log(size,10)+1)
 
