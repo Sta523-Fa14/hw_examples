@@ -2,9 +2,9 @@ universe     = vanilla
 executable   = /usr/bin/R
 input        = mcpi.R
 output       = mcpi_out_$(Process)
-log          = mcpi_log_$(Process)
+log          = mcpi_log
 arguments    = --slave
-requirements = OpSys == "LINUX" && Arch == "x86_64"
-initialdir   = results 
-    
-queue 200
+requirements = OpSys == "LINUX"
+rank         = Arch == "x86_64"
+
+queue 5
