@@ -1,0 +1,9 @@
+universe     = vanilla
+executable   = /usr/bin/R
+input        = mcpi.R
+output       = mcpi_out_$(Process)
+log          = mcpi_log_$(Process)
+arguments    = --slave
+requirements = OpSys == "LINUX" && Arch == "x86_64"
+    
+queue 200
